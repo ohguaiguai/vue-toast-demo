@@ -51,9 +51,9 @@
             height: 60px;
             line-height: 60px;
             text-align: center;
-            background-color: #000;
             border-radius: 10px;
             color: #fff;
+            background-color: #000;
         }
         .fade-in {
             animation-name: fade-in;

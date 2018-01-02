@@ -4,9 +4,10 @@
 import ToastComponent from './vue-toast.vue';
 
 let Toast = {};
+
 Toast.install = function(Vue, options) {
 
-    var opt = {
+    let opt = {
         duration: 3000
     }
     // 覆盖默认选项 (全局)
@@ -24,7 +25,7 @@ Toast.install = function(Vue, options) {
 
         const ToastController = Vue.extend(ToastComponent);// 继承ToastComponent
 
-        var instance = new ToastController().$mount(document.createElement('div'));// 拿到instance后就可以操作export default中的内容
+        let instance = new ToastController().$mount(document.createElement('div'));// 拿到instance后就可以操作export default中的内容
 
         instance.message = message;
         instance.visible = true;
@@ -46,7 +47,8 @@ Toast.install = function(Vue, options) {
         Vue.prototype.$toast(message, option);
     }
 }
-if(window.Vue) {
+// 如果引入了vue就用Vue.use(Toast)这种方式使用插件
+if(typeof window !== 'undefined' && window.Vue) {
     Vue.use(Toast);
 }
 export default  Toast;
