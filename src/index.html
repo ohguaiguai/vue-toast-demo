@@ -8,7 +8,9 @@
 </head>
 <body>
 <div id="app">
-    <a href="javascript:;" @click="toast">点击弹出Toast</a>
+    <a href="javascript:;" @click="toast('default')">点击弹出Toast(默认)</a>
+    <a href="javascript:;" @click="toast('success')">点击弹出Toast(成功)</a>
+    <a href="javascript:;" @click="toast('error')">点击弹出Toast(失败)</a>
 </div>
 <script src="../node_modules/vue/dist/vue.js"></script>
 <script src="../dist/vue-toast-demo.js"></script>
@@ -16,8 +18,14 @@
     new Vue({
         el: '#app',
         methods: {
-            toast: function() {
-                this.$toast.show('你好,Toast');
+            toast: function(type) {
+                if(type === 'default') {
+                    this.$toast.show('你好,Toast', {type: 'default'});
+                } else if(type === 'success') {
+                    this.$toast.show('你好,Toast', {type: 'success', duration: 2000});
+                } else {
+                    this.$toast.show('你好,Toast', {type: 'error'});
+                }
             }
         }
     })

@@ -10,16 +10,16 @@ Toast.install = function(Vue, options) {
     let opt = {
         duration: 3000
     }
-    // 覆盖默认选项 (全局)
+    // 覆盖默认选项 (全局, 可能在main.js里面全局使用了)
     for(let key in options) {
         opt[key] = options[key];
     }
 
     Vue.prototype.$toast = function(message, option) {
-        // 优先局部
+        // 优先局部(在组件中使用)
         if(typeof option == 'object') {
-            for(let key in options) {
-                opt[key] = options[key];
+            for(let key in option) {
+                opt[key] = option[key];
             }
         }
 
@@ -29,7 +29,9 @@ Toast.install = function(Vue, options) {
 
         instance.message = message;
         instance.visible = true;
+        instance.type = opt.type;
 
+        console.log(instance);
         document.body.appendChild(instance.$el);
 
         setTimeout(() => {
@@ -38,12 +40,6 @@ Toast.install = function(Vue, options) {
         }, opt.duration);
     }
     Vue.prototype.$toast['show'] = function(message, option) {
-        Vue.prototype.$toast(message, option);
-    }
-    Vue.prototype.$toast['success'] = function(message, option) {
-        Vue.prototype.$toast(message, option);
-    }
-    Vue.prototype.$toast['error'] = function(message, option) {
         Vue.prototype.$toast(message, option);
     }
 }

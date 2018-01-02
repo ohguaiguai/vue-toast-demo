@@ -19,7 +19,7 @@ module.exports = {
                 options: {
                     // 处理vue中的其他部分
                     loaders: {
-                        scss: 'style-loader!css-loader!sass-loader'// 从右向左
+                        scss: 'style-loader!css-loader!stylus-loader'// 从右向左
                     }
                 }
             },
