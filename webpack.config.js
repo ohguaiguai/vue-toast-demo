@@ -6,9 +6,9 @@ module.exports = {
     entry: './src/lib/index.js',
     output: {
         path: path.join(__dirname,'./dist'),// 必须是绝对路径
-        filename: 'vue-toast-demo.js',
+        filename: 'vue-mobile-toast.js',
         libraryTarget: 'umd', // 指定打包文件的格式
-        library: 'VueToastDemo' // 指定打包的库的名称
+        library: 'VueMobileToast' // 指定打包的库的名称
     },
     module: {
         rules: [

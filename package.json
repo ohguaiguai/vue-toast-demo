@@ -1,6 +1,6 @@
 {
-  "name": "vue-toast-demo",
-  "version": "1.0.0",
+  "name": "vue-mobile-toast",
+  "version": "1.0.1",
   "description": "a toast plugin for mobile",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "toast",
     "vue-toast"
   ],
-  "author": "day-dramer",
+  "author": "day-dreamer",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.26.0",
